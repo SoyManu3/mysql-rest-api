@@ -56,6 +56,7 @@ const  deleteUser  = async (req,  res)  =>  {
    console.log('deleting user...');
 
    try {
+
       const user = await models.User.findOne({ where: { id: req.params.id } });
       if (user) {
 	  console.log(user);
@@ -76,6 +77,7 @@ const  getByIdUser  = async (req,  res)  =>  {
     console.log(' getting users ');
  
     try {
+
        const user = await models.User.findOne({where:{id: req.params.id}} )
        if (!user) {
           return res.status(404).json({ error: `No se encontró el usuairo con id ${req.params.id}` });
